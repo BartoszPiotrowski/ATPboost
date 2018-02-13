@@ -21,7 +21,7 @@ theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_atpproved'))
 train_theorems = set(proofs_train)
 test_theorems = set(theorems) - set(train_theorems)
 
-for i in range(40):
+for i in range(10):
     prs.utils.printline("ADDING PROOFS ROUND: {}".format(i), logfile=LOG_FILE)
     params_data_trans = {'features': features,
                          'chronology': chronology,
