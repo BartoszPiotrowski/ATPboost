@@ -18,6 +18,7 @@ class Features:
         self.order_of_features = self.all_features()
         self.num_of_features = len(self.order_of_features)
 
+
         if verbose or logfile:
             message = "Features of {} thms and definitions loaded.".format(
                        len(self))
@@ -282,6 +283,11 @@ class Proofs:
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
                  verbose=True, logfile='', n_jobs=-1):
+
+        if type(model) == str:
+            model = xgb.Booster()
+            model.load_model(model)
+
         if from_dict:
             self.rankings_with_scores = from_dict
             self.rankings = self._rankings_only_names(self.rankings_with_scores)
