@@ -30,6 +30,7 @@ train_labels, train_array = atpboost.proofs_to_train(proofs_train,
 model = XGB_MODEL
 rankings_test = atpboost.Rankings(test_theorems, model, params_data_trans,
                      n_jobs=N_JOBS, logfile=LOG_FILE)
+rankings_test.save(DATA_DIR + '/rankings_test')
 params_atp_eval = {}
 proofs_test = atpboost.atp_evaluation(rankings_test, statements, params_atp_eval,
                                  dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)

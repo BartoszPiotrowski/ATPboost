@@ -377,3 +377,8 @@ class Rankings:
     def add(self, thm, ranking):
         self.rankings[thm] = ranking
 
+    def save(self, file):
+        with open(file, 'w') as f:
+            for t in self:
+                f.write(f"{t}:{' '.join(self[t])}")
+
