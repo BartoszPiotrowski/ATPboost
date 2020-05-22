@@ -285,8 +285,9 @@ class Rankings:
                  verbose=True, logfile='', n_jobs=-1):
 
         if type(model) == str:
-            model = xgboost.Booster()
-            model.load_model(model)
+            bst = xgboost.Booster()
+            bst.load_model(model)
+            model = bst
 
         if from_dict:
             self.rankings_with_scores = from_dict
