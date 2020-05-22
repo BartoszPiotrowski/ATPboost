@@ -380,5 +380,5 @@ class Rankings:
     def save(self, file):
         with open(file, 'w') as f:
             for t in self:
-                f.write(f"{t}:{' '.join(self[t])}")
+                f.write(f"{t}:{' '.join(self[t])}\n")
 
