@@ -282,14 +282,21 @@ class Proofs:
 
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
-                 verbose=True, logfile='', n_jobs=-1):
+                 from_dict=None, verbose=True, logfile='', n_jobs=-1):
 
         if type(model) == str:
             bst = xgboost.Booster()
             bst.load_model(model)
             model = bst
-
-        if from_dict:
+        if from_file:
+            with open(file, 'r') as f:
+                lines = f.read().splitlines()
+            self.rankings = {}
+            for l in lines:
+                t, pp = l.split(':')
+                pp = pp.split(' ')
+                self.rankings[t] = pp
+        elif from_dict:
             self.rankings_with_scores = from_dict
             self.rankings = self._rankings_only_names(self.rankings_with_scores)
         elif model:
@@ -381,4 +388,5 @@ class Rankings:
         with open(file, 'w') as f:
             for t in self:
                 f.write(f"{t}:{' '.join(self[t])}\n")
+
 
