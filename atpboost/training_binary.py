@@ -35,4 +35,5 @@ def train_xgboost(labels, array, weights, params, n_jobs):
                       'booster': booster,
                       'n_jobs': n_jobs}
     return xgb.train(params_booster, dtrain, num_boost_round=num_boost_round,
-                     xgb_model=pretrained_model)
+                     xgb_model=pretrained_model,
+                     evals=[(dtrain, 'train')], verbose_eval=100)
