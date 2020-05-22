@@ -6,6 +6,12 @@ import xgboost
 from random import sample
 from time import time
 
+def write_lines(list_of_lines, filename, backup=False):
+    if backup:
+        copyfile(filename, filename + '.bcp')
+    with open(filename, encoding ='utf-8', mode='wt') as f:
+        f.write('\n'.join(list_of_lines) + '\n')
+
 class Features:
     def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
         if from_file:
@@ -388,5 +394,10 @@ class Rankings:
         with open(file, 'w') as f:
             for t in self:
                 f.write(f"{t}:{' '.join(self[t])}\n")
+
+    def save_scores(self):
+        for t in self.rankings_with_scores:
+            write_lines([f'{p} {s}' for p, s in self.rankings_with_scores[t]],
+                        '_scores/' + t)
 
 
