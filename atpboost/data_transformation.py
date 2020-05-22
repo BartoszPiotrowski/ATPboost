@@ -23,7 +23,8 @@ def pairs_to_array(pairs, params):
             list_of_pairs.append(thm_f_appended + prm_f_appended)
     else:
         print("Error: unknown merge mode.")
-    hasher = FeatureHasher(n_features=num_of_features, input_type='string')
+    #hasher = FeatureHasher(n_features=num_of_features, input_type='string')
+    hasher = FeatureHasher(n_features=2**14, input_type='string')
     csc_array = hasher.transform(list_of_pairs)
     return csc_array
 

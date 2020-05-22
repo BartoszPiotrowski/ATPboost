@@ -25,6 +25,8 @@ test_theorems = set(theorems) - set(train_theorems)
 
 params_data_trans = {'features': features,
                      'chronology': chronology}
+train_labels, train_array = atpboost.proofs_to_train(proofs_train,
+                             params_data_trans, n_jobs=N_JOBS, logfile=LOG_FILE)
 model = XGB_MODEL
 rankings_test = atpboost.Rankings(test_theorems, model, params_data_trans,
                      n_jobs=N_JOBS, logfile=LOG_FILE)
