@@ -281,7 +281,7 @@ class Proofs:
             print(p)
 
 class Rankings:
-    def __init__(self, thms=None, model=None, params=None, from_dict=None,
+    def __init__(self, thms=None, model=None, params=None, from_file=None,
                  from_dict=None, verbose=True, logfile='', n_jobs=-1):
 
         if type(model) == str:
@@ -289,7 +289,7 @@ class Rankings:
             bst.load_model(model)
             model = bst
         if from_file:
-            with open(file, 'r') as f:
+            with open(from_file, 'r') as f:
                 lines = f.read().splitlines()
             self.rankings = {}
             for l in lines:
