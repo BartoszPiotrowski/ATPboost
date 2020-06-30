@@ -1,0 +1,11 @@
+python3 atpboost.py \
+	--conjectures data/MPTP2078/conjectures \
+	--train_deps data/MPTP2078/train_deps \
+	--statements data/MPTP2078/statements \
+    --features data/MPTP2078/features \
+    --chronology data/MPTP2078/chronology \
+	--ml_models xgboost \
+    --mining 0.1 \
+    --iterations 100 \
+	--n_jobs 50 \
+    --data_dir data/MPTP2078/atpboost_data \

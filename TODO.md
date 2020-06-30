@@ -1,0 +1,8 @@
+- clean up, run test, include test data
+- atp-minimization
+- handling errors from os.popen
+- add support for both binary features and enigma features
+- describe parameters
+- max_num_prems, knn_prefiltering: check this carefully
+- check if neg mining is activated
+- compile fcoplib
