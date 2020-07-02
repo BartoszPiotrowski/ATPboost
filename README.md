@@ -19,7 +19,6 @@ Now you shoudl be able to run all test scripts from `tests` directory.
 # An example how to run ATPboost
 
 ```
-source atpboost_venv/bin/activate
 python3 atpboost.py \
     --iterations 10 \
     --conjectures data/example/conjectures \
