@@ -28,7 +28,7 @@ python3 atpboost.py \
     --chronology data/example/chronology \
     --ml_models xgboost \
     --mining 0.1 \
-	--n_jobs 50 \
+    --n_jobs 10 \
     --data_dir data/example/atpboost_data
 ```
 
